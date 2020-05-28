@@ -2,12 +2,14 @@ on:
   - push
 
 jobs:
-  hello_world_job:
+  get_pr_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to get pull request
     steps:
-    - name: Hello world action step
-      id: hello
+    - name: Get PR action step
+      id: pr_step
       uses: shioyang/get-pr-action@v2.0.2
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: See found PR
+      run: echo "${{ steps.pr_step.output.pull_request }}"
