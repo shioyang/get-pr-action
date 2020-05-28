@@ -7,7 +7,7 @@ async function run() {
 
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
-    const commit_sha = core.getInput("sha");
+    const commit_sha = github.context.sha
     console.log(commit_sha);
 
     const client = new github.GitHub(token);
