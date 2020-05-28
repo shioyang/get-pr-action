@@ -8,4 +8,4 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: shioyang/get-pr-action@v1
+      uses: shioyang/get-pr-action@v1.0.1
