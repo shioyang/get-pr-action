@@ -1,21 +1,23 @@
 # Get PR action
 
-This action get PR info.
+This action get pull request associated with the commit.
 
 ## Inputs
 
-### `who-to-greet`
+### `repo-token`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The repository token, i.e. `secrets.GITHUB_TOKEN`
 
 ## Outputs
 
-### `time`
+### `pull_request`
 
-The time we greeted you.
+The pull request associated with the commit
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
+```
+uses: shioyang/get-pr-action@v2.0.2
 with:
-  who-to-greet: 'Mona the Octocat'
+  repo-token: ${{ secrets.GITHUB_TOKEN }}
+```
