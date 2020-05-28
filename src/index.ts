@@ -4,16 +4,23 @@ import * as github from "@actions/github";
 async function run() {
   try {
     const token = core.getInput("repo-token", { required: true });
-    console.log(github.context)
 
-    // // `who-to-greet` input defined in action metadata file
-    // const nameToGreet = core.getInput("who-to-greet");
-    // console.log(`Hello ${nameToGreet}!`);
-    // const time = new Date().toTimeString();
-    // core.setOutput("time", time);
-    // // Get the JSON webhook payload for the event that triggered the workflow
-    // const payload = JSON.stringify(github.context.payload, undefined, 2);
-    // console.log(`The event payload: ${payload}`);
+    const owner = github.context.repo.owner;
+    const repo = github.context.repo.repo;
+    const commit_sha = core.getInput("sha");
+    console.log(commit_sha);
+
+    const client = new github.GitHub(token);
+    const response = await client.repos.listPullRequestsAssociatedWithCommit({
+      owner,
+      repo,
+      commit_sha,
+    });
+
+    const pull_request =
+      response.data.length > 0 ? JSON.stringify(response.data[0]) : "";
+    console.log(pull_request);
+    core.setOutput("pull_request", pull_request);
   } catch (error) {
     core.setFailed(error.message);
   }
