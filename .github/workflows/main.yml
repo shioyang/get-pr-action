@@ -12,4 +12,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: See found PR
-      run: echo "${{ steps.pr_step.output.pull_request }}"
+      run: echo "${{ steps.pr_step.outputs.pull_request }}"
