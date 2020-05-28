@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Get PR action step
       id: pr_step
-      uses: shioyang/get-pr-action@v2.0.2
+      uses: shioyang/get-pr-action@v2.0.3
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: See found PR
