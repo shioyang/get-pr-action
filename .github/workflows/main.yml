@@ -10,4 +10,4 @@ jobs:
       id: hello
       uses: shioyang/get-pr-action@v1.0.1
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
