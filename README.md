@@ -1,8 +1,6 @@
 # Get PR action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
-
-https://help.github.com/en/actions/creating-actions/creating-a-javascript-action
+This action get PR info.
 
 ## Inputs
 
