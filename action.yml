@@ -1,13 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Get PR'
+description: 'This action get pull request associated with the commit.'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  repo-token:  # id of input
+    description: 'The repository token, i.e. secrets.GITHUB_TOKEN'
     required: true
-    default: 'World'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  pull_request: # id of output
+    description: 'The pull request associated with the commit'
 runs:
   using: 'node12'
   main: 'dist/index.js'

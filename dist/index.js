@@ -7604,7 +7604,6 @@ function run() {
         const owner = github.context.repo.owner;
         const repo = github.context.repo.repo;
         const commit_sha = github.context.sha;
-        console.log(commit_sha);
         const client = new github.GitHub(token);
         const response = yield client.repos.listPullRequestsAssociatedWithCommit({
             owner,
@@ -7612,10 +7611,8 @@ function run() {
             commit_sha,
         });
         const pr = response.data.length > 0 && response.data[0];
-        if (pr) {
-            console.log(pr);
-        }
         const pull_request = pr ? JSON.stringify(pr) : "";
+        core.debug(pull_request);
         core.setOutput("pull_request", pull_request);
     });
 }
